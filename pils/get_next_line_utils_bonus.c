@@ -15,6 +15,7 @@ size_t  ft_len(char *str)
 char    *ft_strchr(char *str, int c)
 {
     size_t  i;
+	i = 0;
     if (!str)
         return (0);
     if (c == '\0') 
@@ -53,7 +54,7 @@ char    *ft_strjoin(char *s1, char *s2)
         out[j++] = s1[i++];
     i = 0;
     while (s2[i])
-        out[j++] = s2[i];
+        out[j++] = s2[i++];
     out[j] = '\0';
     free(s1);
     return (out);
@@ -103,8 +104,8 @@ char    *ft_next_line(char *str)
 	if (str[len] == '\n')
 		len++;
     new = (char *)malloc(sizeof(char) * (len + 1));
-    if (!new)
-        return (NULL);
+	if (!new)
+		return (NULL);
 	i = 0;
    	while (str[i] && str[i] != '\n')
    	{
