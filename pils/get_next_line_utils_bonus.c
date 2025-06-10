@@ -92,22 +92,32 @@ char    *ft_next_line(char *str)
 {
     char    *new;
     int     i;
+	int		len;
 
     if (!str || str[0] == 0)
         return (NULL);
-    new = (char *)malloc(sizeof(char) * (i + 2));
+
+    len = 0;
+	while (str[len] && str[len] != '\n')
+		len++;
+	if (str[len] == '\n')
+		len++;
+    new = (char *)malloc(sizeof(char) * (len + 1));
     if (!new)
         return (NULL);
-   i = 0;
-   while (str[i] && str[i] != '\n')
-   {
+	i = 0;
+   	while (str[i] && str[i] != '\n')
+   	{
         new[i] = str[i];
         i++;
-   }
-   if (str[i] == '\n')
-       new[i++] = '\n';
-   new[i] = '\0';
-   return (NULL);
+  	}
+   	if (str[i] == '\n')
+	{
+       new[i] = '\n';
+	   i++;
+	}
+   	new[i] = '\0';
+   	return (new);
 }
 
 //remove a linha ja retornada do buffer, retorna buffer atualizado
