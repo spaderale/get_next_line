@@ -6,7 +6,7 @@
 /*   By: abroslav <abroslav@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 17:18:11 by abroslav          #+#    #+#             */
-/*   Updated: 2025/06/02 20:35:47 by abroslav         ###   ########.fr       */
+/*   Updated: 2025/06/17 19:06:16 by abroslav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ size_t	ft_len(char *str)
 	return (i);
 }
 
-//le uma linha do fd e retorna uma nova string contendo a linha lida
-
 char	*get_next_line(int fd)
 {
 	char			*out;
@@ -41,6 +39,7 @@ char	*get_next_line(int fd)
 	return (out);
 }
 
+#include <stdio.h>
 int	main(void)
 {
 	char		*s;

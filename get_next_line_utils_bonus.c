@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abroslav <abroslav@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 17:33:44 by abroslav          #+#    #+#             */
-/*   Updated: 2025/06/17 18:58:50 by abroslav         ###   ########.fr       */
+/*   Created: 2025/06/12 18:24:31 by abroslav          #+#    #+#             */
+/*   Updated: 2025/06/17 19:00:47 by abroslav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-//Retorna um ponteiro para a primeira ocorrencia de c em uma string 
-//ou nulo se o char nao for encontrado
+#include "get_next_line_bonus.h"
 
 char	*ft_strchr(char *str, int c)
 {
@@ -32,8 +29,6 @@ char	*ft_strchr(char *str, int c)
 	}
 	return (0);
 }
-
-//Combina duas strings e retorna uma string contendo a combinação de ambas
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -63,11 +58,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (out);
 }
 
-//Essa funcao le uma linha de texto do fd e retorna a linha lida
-//ssize_t signed size
-//read(int fd, void *bufeer, size_t counter) retorna ssize_t do byte lido do fd
-//-1 para erro ou o numero do byte, counter é o tamanho max de bytes lido
-
 char	*line_allocation(int fd, char *str)
 {
 	char		*buffer;
@@ -90,16 +80,14 @@ char	*line_allocation(int fd, char *str)
 	return (str);
 }
 
-//extrai a proxima linha de uma str e retorna nova string contendo a prox. linha
-
 char	*ft_next_line(char *str)
 {
 	char	*new;
 	int		i;
 
-	i = 0;
-	if (str[i] == 0)
+	if (!str || str[0] == '\0')
 		return (NULL);
+	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
 	new = (char *)malloc(sizeof(char) * (i + 2));
@@ -119,8 +107,6 @@ char	*ft_next_line(char *str)
 	new[i] = '\0';
 	return (new);
 }
-
-//remove a proxima linha de uma str e retorna nova str
 
 char	*ft_rem_line(char *line)
 {
